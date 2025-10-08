@@ -10,7 +10,7 @@ def send_email():
   
     sender_email = os.getenv('MY_GMAIL_ADDRESS')
     app_password = os.getenv('MY_GMAIL_APP_PASSWORD')
-    recipient_email = "recipient email address"  # You can also load this from an env variable
+    recipient_email = "recipient email address"  
 
   
     if not sender_email or not app_password:
@@ -22,12 +22,12 @@ def send_email():
     msg['Subject'] = 'SMTP Test from Python'
     msg['From'] = sender_email
     msg['To'] = recipient_email
-    msg.set_content('abhi hoga system hack!')
+    msg.set_content('this is to test the working of SMTP server!')
 
  
     print(f"Sending email to {recipient_email}...")
     try:
-        # Establish a connection to the server on port 587
+        
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
             smtp.starttls()  # Secure the connection
             smtp.login(sender_email, app_password)  # Log in using your App Password
@@ -45,3 +45,4 @@ def send_email():
 if __name__ == "__main__":
 
     send_email()
+
